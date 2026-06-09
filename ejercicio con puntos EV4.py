@@ -1,7 +1,7 @@
 def validar_contrasena(password):
     if len(password) < 8:
         return False
-
+#hola profe
     if " " in password:
         return False
 
