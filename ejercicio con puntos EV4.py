@@ -87,7 +87,11 @@ def main():
     while True:
         mostrar_menu()
 
-        opcion = input("Ingrese opción: ")
+        try:    
+            opcion = input("Ingrese opción: ")
+        except:
+            print("Error al ingresar opción.")
+            continue
 
         if opcion == "1":
             ingresar_usuario(usuarios)
