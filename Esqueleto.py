@@ -3,10 +3,10 @@ registros = []
 
 # ---------------- VALIDACIONES ----------------
 
-def validar_campo_texto(texto):
+def validar_campo_texto(texto): #cambiar nombre de función y parámetros según el contexto, por ejemplo validar_modelo(modelo) o validar_nombre(nombre)
     return texto.strip() != ""
 
-def validar_numero(numero):
+def validar_numero(numero): #cambiar nombre de función y parámetros según el contexto, por ejemplo validar_anio(anio) o validar_precio(precio)
     return numero > 0
 
 # ---------------- MENU ----------------
@@ -20,20 +20,32 @@ def mostrar_menu():
     print("5. Mostrar")
     print("6. Salir")
 
-def leer_opcion():
-    opcion = int(input("Ingrese una opción: "))
-    return opcion
+def leer_opcion(): #leer la opción del menú, validar que sea un número entre 1 y 6, y devolver la opción seleccionada
+    while True:
+        try:
+            opcion = int(input("Ingrese una opción: "))
+            if 1 <= opcion <= 6:
+                return opcion
+            else:
+                print("Debe ingresar un número entre 1 y 6.")
+        except:
+            print("Ingrese un número válido.")
 
 # ---------------- FUNCIONES ----------------
 
-def agregar_registro(lista):
+def agregar_registro(lista): #cambiar nombre de función y parámetros según el contexto, por ejemplo agregar_vehiculo(lista) o agregar_producto(lista)
 
-    campo1 = input("Ingrese dato 1: ")
-    campo2 = input("Ingrese dato 2: ")
-    campo3 = input("Ingrese dato 3: ")
+    campo1 = input("Ingrese dato 1: ") #cambiar texto de "Ingrese dato 1" por el nombre del dato que se va a ingresar, como "Ingrese modelo" o "Ingrese nombre"
+    try:
+        campo2 = int(input("Ingrese año: ")) 
+        campo3 = float(input("Ingrese precio: "))
+    except:
+        print("Año o precio inválido.")
+        return
 
     # Validaciones
     if not validar_campo_texto(campo1):
+
         print("Dato inválido")
         return
 
